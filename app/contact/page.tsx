@@ -1,0 +1,5 @@
+import type { Metadata } from 'next';
+import BrandPage from '../brand-page';
+const consult = `https://wa.me/201011549171?text=${encodeURIComponent('Hi Coach Ahmadany, I would like to book a free consultation. My name is: ____. My main goal is: ____. The plan I am interested in is: ____.')}`;
+export const metadata: Metadata = { title: 'Contact Coach Ahmedany | AHMADANY' };
+export default function ContactPage() { return <BrandPage eyebrow="CONTACT · FREE CONSULTATION" title="LET’S TALK ABOUT YOUR GOALS." intro="Tell Coach Mohamed Ahmedany what you are working toward. Start a conversation and find the coaching approach that fits." sections={[{ title: 'WhatsApp', body: '+20 101 154 9171 · Tap the consultation button below to open a prefilled WhatsApp message. Review it and press send to contact the coach.' }, { title: 'Email', body: 'coachingahmdany@gmail.com' }, { title: 'What to include', body: 'Share your name, best contact details, primary fitness goal, and which coaching plan you are considering. Avoid sending sensitive health information in an initial message.' }]} action={consult} actionLabel="BOOK FREE CONSULTATION VIA WHATSAPP"/>; }
