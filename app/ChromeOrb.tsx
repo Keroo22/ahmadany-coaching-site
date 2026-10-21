@@ -26,12 +26,12 @@ export default function ChromeOrb() {
     const environment = pmrem.fromScene(new RoomEnvironment(), .04).texture;
     scene.environment = environment;
     const key = new THREE.DirectionalLight(0xf6ffe5, 4.2); key.position.set(-3, 4, 4); scene.add(key);
-    const fill = new THREE.PointLight(0xc7ff38, 13, 9); fill.position.set(3, -1, 2); scene.add(fill);
+    const fill = new THREE.PointLight(0xe21b2d, 13, 9); fill.position.set(3, -1, 2); scene.add(fill);
     const rim = new THREE.PointLight(0xe9f2ff, 10, 10); rim.position.set(-4, -2, -2); scene.add(rim);
     const group = new THREE.Group(); scene.add(group);
     const sphere = new THREE.Mesh(new THREE.SphereGeometry(1.16, 96, 96), new THREE.MeshPhysicalMaterial({ color: 0xcad0c6, metalness: .93, roughness: .17, clearcoat: 1, clearcoatRoughness: .12, envMapIntensity: 1.7 }));
     group.add(sphere);
-    const ring = new THREE.Mesh(new THREE.TorusGeometry(1.34, .012, 12, 180), new THREE.MeshBasicMaterial({ color: 0xc7ff38, transparent: true, opacity: .72 }));
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(1.34, .012, 12, 180), new THREE.MeshBasicMaterial({ color: 0xe21b2d, transparent: true, opacity: .72 }));
     ring.rotation.set(.92, .25, -.25); group.add(ring);
     const innerRing = new THREE.Mesh(new THREE.TorusGeometry(1.39, .004, 8, 160), new THREE.MeshBasicMaterial({ color: 0xf5f6f2, transparent: true, opacity: .42 }));
     innerRing.rotation.set(.92, .25, -.25); group.add(innerRing);

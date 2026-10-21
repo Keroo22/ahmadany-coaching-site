@@ -1,0 +1,13 @@
+.sales-chat{position:fixed;z-index:60;right:22px;bottom:22px;font-family:var(--font-body)}
+.sales-chat-launcher{min-height:54px;display:flex;align-items:center;justify-content:center;gap:10px;padding:0 18px;border:0;border-radius:999px;background:var(--accent);color:#fff;box-shadow:0 10px 34px rgba(0,0,0,.42);cursor:pointer;font-size:10px;font-weight:700;letter-spacing:.08em}
+.sales-chat-launcher:hover{background:#ff4050;transform:translateY(-2px)}
+.sales-chat-panel{position:absolute;right:0;bottom:68px;width:min(360px,calc(100vw - 28px));height:min(490px,calc(100dvh - 120px));display:flex;flex-direction:column;overflow:hidden;background:#101112;border:1px solid rgba(255,255,255,.15);border-radius:16px;box-shadow:0 20px 70px rgba(0,0,0,.65)}
+.sales-chat-header{min-height:68px;display:flex;align-items:center;gap:11px;padding:13px 15px;border-bottom:1px solid var(--line);background:#171819}
+.sales-chat-avatar{width:36px;height:36px;display:grid;place-items:center;border-radius:50%;background:var(--accent);color:#fff}
+.sales-chat-header>div{display:flex;flex:1;flex-direction:column;gap:5px}.sales-chat-header strong{font-size:10px;letter-spacing:.1em}.sales-chat-header small{font-size:8px;letter-spacing:.1em;color:#a0a39f}
+.sales-chat-header button,.sales-chat-form button{display:grid;place-items:center;border:0;background:transparent;color:#d9dbd8;cursor:pointer}.sales-chat-header button{width:32px;height:32px}
+.sales-chat-messages{flex:1;display:flex;flex-direction:column;gap:11px;overflow:auto;padding:16px 13px}
+.sales-chat-message{max-width:88%;margin:0;padding:11px 12px;border-radius:12px;font-size:11px;line-height:1.65;white-space:pre-wrap}.sales-chat-message.assistant{align-self:flex-start;background:#202223;color:#f1f1ef;border-bottom-left-radius:4px}.sales-chat-message.user{align-self:flex-end;background:var(--accent);color:white;border-bottom-right-radius:4px}
+.sales-chat-whatsapp{padding:10px 13px;color:#ff7e89;text-align:center;font-size:10px;font-weight:700;border-top:1px solid var(--line)}
+.sales-chat-form{display:flex;align-items:center;gap:7px;margin:0 11px 11px;padding:5px 6px 5px 12px;border:1px solid rgba(255,255,255,.17);border-radius:999px}.sales-chat-form:focus-within{border-color:var(--accent)}.sales-chat-form input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:white;font-size:11px}.sales-chat-form input::placeholder{color:#858985}.sales-chat-form button{width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff}.sales-chat-form button:disabled{opacity:.45;cursor:default}
+@media(max-width:640px){.sales-chat{right:14px;bottom:14px}.sales-chat-launcher{min-height:50px;padding:0 15px}.sales-chat-panel{bottom:62px;height:min(490px,calc(100dvh - 92px))}}
