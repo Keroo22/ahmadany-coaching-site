@@ -8,7 +8,9 @@ The site is published with GitHub Pages at https://keroo22.github.io/ahmadany-co
 
 The preview is a static marketing site. Payment and order creation are intentionally disabled; plan inquiries open WhatsApp. The site uses a black and red visual system, a plan-guidance chat widget, generic editorial gym photography, and draft policies until owner-approved assets and final copy are provided.
 
-The chat widget currently answers common plan questions with a guided sales FAQ and offers a WhatsApp handoff. For model-powered AI answers, connect a secure backend that accepts `POST { "messages": [{ "role": "user|assistant", "content": "..." }] }` and returns `{ "reply": "..." }`. Set its HTTPS URL as the GitHub Actions secret `NEXT_PUBLIC_CHATBOT_ENDPOINT`, then rerun the deployment workflow. Keep provider API keys only on that backend; GitHub Pages cannot securely host server-side secrets or API routes. Add rate limits, allowed-origin checks, and a privacy notice before enabling an AI provider.
+The chat widget currently answers common plan questions with a guided sales FAQ and offers a WhatsApp handoff. This repository now includes a server-side `/api/chat` route using OpenAI's Responses API. GitHub Pages stays a static host and cannot run that route. Deploy the repository to Vercel for the complete site and API, or keep GitHub Pages and set its `NEXT_PUBLIC_CHATBOT_ENDPOINT` GitHub Actions secret to the deployed Vercel `/api/chat` URL. Keep `OPENAI_API_KEY` only in Vercel's server-side environment variables; never put it in a `NEXT_PUBLIC_*` variable or source control.
+
+To enable model replies, add these Vercel environment variables: `OPENAI_API_KEY`, `OPENAI_MODEL` (defaults to `gpt-5-mini`), and `CHAT_ALLOWED_ORIGIN` (defaults to the current GitHub Pages origin). For a Vercel-hosted site, also set `NEXT_PUBLIC_CHATBOT_ENDPOINT=/api/chat`. For a GitHub Pages frontend, set `NEXT_PUBLIC_CHATBOT_ENDPOINT` to the full Vercel API URL in the GitHub Actions secret and rerun the workflow. The route validates and caps messages, restricts browser origins, limits response length, disables response storage, and applies a per-instance request throttle. Add a shared rate limiter for stronger production abuse protection.
 
 ## Run locally
 
@@ -29,7 +31,7 @@ For a local production build, run `npm run build`, then `npm start`.
 
 ## Production integrations still required
 
-No merchant, database, email credentials, AI backend, production domain, or coach-supplied image/social assets were present in the project. Before accepting an order or enabling model-powered chat:
+No merchant, database, email credentials, OpenAI key, production Vercel deployment, or coach-supplied image/social assets were present in the project. Before accepting an order or enabling model-powered chat:
 
 1. Confirm Egyptian merchant eligibility, accepted EGP payment methods, settlement, refunds, and current gateway documentation with Paymob or another eligible provider.
 2. Implement provider tokenization/payment initiation, signed webhook verification, idempotent event handling, server-side order persistence, status reconciliation, and refund handling. Add database migrations and transactional email after choosing providers. Never accept a browser redirect as payment proof or store card data.

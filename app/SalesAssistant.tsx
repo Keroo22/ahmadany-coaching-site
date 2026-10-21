@@ -27,7 +27,7 @@ export default function SalesAssistant() {
     event.preventDefault();
     const question = input.trim();
     if (!question || busy) return;
-      const next = [...messages, { role: 'user' as const, text: question }];
+    const next = [...messages, { role: 'user' as const, text: question }];
     setMessages(next);
     setInput('');
     if (!chatEndpoint) {

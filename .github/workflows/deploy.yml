@@ -30,6 +30,7 @@ jobs:
       - name: Build static site
         run: npm run build
         env:
+          STATIC_EXPORT: 'true'
           NEXT_PUBLIC_BASE_PATH: /ahmadany-coaching-site
           NEXT_PUBLIC_SITE_URL: https://keroo22.github.io/ahmadany-coaching-site
           NEXT_PUBLIC_CHATBOT_ENDPOINT: ${{ secrets.NEXT_PUBLIC_CHATBOT_ENDPOINT }}
